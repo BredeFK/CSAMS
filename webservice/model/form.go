@@ -2,7 +2,7 @@ package model
 
 import (
 	"errors"
-	"github.com/JohanAanesen/NTNU-Bachelor-Management-System-For-CS-Assignments/webservice/shared/db"
+	"github.com/JohanAanesen/NTNU-Bachelor-Management-System-For-CS-Assignments/internal/db"
 	"time"
 )
 

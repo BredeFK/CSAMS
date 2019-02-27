@@ -4,6 +4,7 @@ import (
 	"log"
 	"math/rand"
 	"time"
+	"github.com/JohanAanesen/NTNU-Bachelor-Management-System-For-CS-Assignments/internal/db"
 )
 
 //Submissions type submission slice
@@ -32,7 +33,7 @@ func getSubmissions(SubmissionID int) Submissions {
 	//Create an empty courses array
 	var submissions Submissions
 
-	rows, err := GetDB().Query("SELECT id, user_id, submission_id FROM user_submissions WHERE submission_id = ?", SubmissionID)
+	rows, err := db.GetDB().Query("SELECT id, user_id, submission_id FROM user_submissions WHERE submission_id = ?", SubmissionID)
 	if err != nil {
 		log.Println(err.Error()) // TODO : log error
 		// returns empty course array if it fails
@@ -60,7 +61,7 @@ func getSubmissions(SubmissionID int) Submissions {
 //savePairs saves the peer_reviews to database
 func savePairs(pairs Pairs) bool {
 
-	tx, err := GetDB().Begin() //start transaction
+	tx, err := db.GetDB().Begin() //start transaction
 	if err != nil {
 		log.Println(err.Error())
 		return false

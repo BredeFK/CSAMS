@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"github.com/JohanAanesen/NTNU-Bachelor-Management-System-For-CS-Assignments/internal/config"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -15,7 +16,7 @@ func getReaderFromPayload(payload Payload) io.Reader {
 }
 
 func TestHandlers(t *testing.T) {
-	Initialize()
+	config.Initialize()
 
 	tests := []struct {
 		name    string
