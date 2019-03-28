@@ -160,6 +160,7 @@ CREATE TABLE `user_submissions`
   `comment`       text                 DEFAULT NULL,
   `submitted`     timestamp   NOT NULL,
   PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES users (`id`),
   FOREIGN KEY (`assignment_id`) REFERENCES assignments (`id`),
   FOREIGN KEY (`submission_id`) REFERENCES submissions (`id`)
 );
